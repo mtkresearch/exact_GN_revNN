@@ -1,0 +1,37 @@
+*.pt
+plots/*
+*.zip
+.vscode
+*.npy
+*.ipynb
+*.out
+**/train_script.py
+**/train_wx.py
+**/config/train_mnist_new.yaml
+
+plots2/*
+*.png
+__pycache__
+conv_indexes/*
+playground/
+
+# Datasets
+MNIST/
+
+# Results
+**/results/*
+**/results*/*
+**/results_new/*
+**/results_test/*
+**/tensorboard/*
+**/plots/*
+**/checkpoints/*
+**/data/*
+ocaml/
+results*
+best_results*
+
+# Keep dirs
+!.keepdir
+
+!rev_mlp.png
