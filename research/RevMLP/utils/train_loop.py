@@ -67,14 +67,14 @@ def train(
                 images, labels = images.to(device), labels.to(device)
 
                 if epoch == 0 and i == 0:
-                    log_layer_losses(
-                        logger,
-                        0,
-                        model,
-                        labels,
-                        images,
-                        layer_loss_func,
-                    )
+                    # log_layer_losses(
+                    #     logger,
+                    #     0,
+                    #     model,
+                    #     labels,
+                    #     images,
+                    #     layer_loss_func,
+                    # )
                     log_layer_weights(logger, model)
 
                 optimizer.zero_grad()
@@ -141,14 +141,14 @@ def train(
                     or (i == 0 and epoch == 0)
                 ):
                     if not (i == 0 and epoch == 0):
-                        log_layer_losses(
-                            logger,
-                            epoch * len(tepoch) + i,
-                            model,
-                            labels,
-                            images,
-                            layer_loss_func,
-                        )
+                        # log_layer_losses(
+                        #     logger,
+                        #     epoch * len(tepoch) + i,
+                        #     model,
+                        #     labels,
+                        #     images,
+                        #     layer_loss_func,
+                        # )
                         log_layer_weights(logger, model)
                     if log_test:
                         val_loss, val_acc = test(
@@ -192,14 +192,14 @@ def train(
                     test_time += time.time() - test_time_tmp
 
             # Save the new model checkpoint
-            # checkpoint_path = os.path.join(weight_folder, f"{opt_name}_{exp_name}_epoch{epoch+1:03d}.pt")
+            checkpoint_path = os.path.join(weight_folder, f"{opt_name}_{exp_name}_epoch{epoch+1:03d}.pt")
             # if train_ggn:
             #     torch.save(model.state_dict(), checkpoint_path)
             # else:
             #     ckpt = {"model": model.state_dict(),
             #             "optimizer": optimizer.state_dict()}
             #     torch.save(ckpt, checkpoint_path)
-
+            #
             with logger.scoped_configure(
                 os.path.join(logger.get_dir(), "per_epoch"),
                 format_strs=["stdout", "csv"],

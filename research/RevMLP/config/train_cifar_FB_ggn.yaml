@@ -3,15 +3,10 @@ Setup:
     batch_size: 1024
     batch_size_test: 512
     name: cifar
-    path: /proj//data
+    path: /proj/gpu_mtk53601/research/deq_experiments/alberto_experiment/research/data
     num_classes: 10
     subset: 1024
-    augmentations:
-      - name: randomresizecrop
-        args:
-          size: [32,32]
-          scale: [0.08, 1.0]
-          ratio: [0.75, 1.33]
+    augmentations: false
     add_random: false
     random_proj: false
 
@@ -28,7 +23,7 @@ Setup:
     hidden_dim: 8000
     output_dim: 10
     bias: true
-    num_layers: 12
+    num_layers: 6
     layer_norm: false
     non_linearity: true
     inv_method: default
@@ -52,7 +47,7 @@ Runtime:
       name: cross_entropy
     optimizer:
       args:
-        lr: 0.5
+        lr: 1.0
         weight_decay: 0.00
       name: sgd
     scheduler:
@@ -61,6 +56,6 @@ Runtime:
 
 Output:
   Results:
-    output_dir: /proj///logs/results_cifar_FullBatch
+    output_dir: results_cifar_FullBatch
     weight_root_dir: /proj///weights_FullBatch
     format_strs: ["log", "json", "csv", "tensorboard"]

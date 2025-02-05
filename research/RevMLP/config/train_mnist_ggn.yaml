@@ -23,7 +23,7 @@ Setup:
     hidden_dim: 8000
     output_dim: 10
     bias: true
-    num_layers: 4
+    num_layers: 2
     layer_norm: false
     non_linearity: true
     inv_method: default
